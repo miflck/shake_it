@@ -5,6 +5,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    ofHideCursor();
     ofBackground(0);
     ofSetVerticalSync(true);
     ofToggleFullscreen();
@@ -274,7 +275,7 @@ void ofApp::draw(){
         ofPushStyle();
         ofFill();
         ofSetColor(255,255,0);
-        ofDrawRectangle(0, 50,shakeEnergy, 50);
+        ofDrawRectangle(0, ofGetHeight()-50,0,shakeEnergy, 50);
         ofPopStyle();
         
         fps->draw();
@@ -391,14 +392,14 @@ void ofApp::shake(ofVec3f v){
     }
     
     
-    cout<<(ABS(v.x)+ABS(v.y)+ABS(v.z))/3<<endl;
+    cout<<"Shake "<<v<<" "<<(ABS(v.x)+ABS(v.y)+ABS(v.z))/3<<endl;
     shakeEnergy+=(ABS(v.x)+ABS(v.y)+ABS(v.z))/3;
 
     
     if(thisvideo->getState()==INTRO){
         if(bUseEnergy){
             for(int i=0;i<particles.size();i++){
-                float f=ofMap(shakeEnergy, 0, 300, 0, 10,true);
+                float f=ofMap(shakeEnergy, 0, 1900, 0, 10,true);
                 particles[i].addForce(ofVec2f(ofRandom(-1,1)*10,ofRandom(0.5,-1)*10),ofRandom(f/2,f));
               //  particles[i].setDampingDuration(ofRandom(2,5));
                 particles[i].setDampingDuration(1500);

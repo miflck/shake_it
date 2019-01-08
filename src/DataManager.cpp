@@ -34,12 +34,12 @@ void DataManager::update(){
         if(f2>f1 && f2 > f3 && f2-f1>peakDiff){
             
             ofVec3f v =ofVec3f(f1,f2,f3);
-            ofNotifyEvent(maxPeak,v );
+            //ofNotifyEvent(maxPeak,v );
         }
         
         if(f2<f1 && f2 < f3 && f1-f2>peakDiff){
             ofVec3f v =ofVec3f(f1,f2,f3);
-            ofNotifyEvent(maxPeak,v );
+           // ofNotifyEvent(maxPeak,v );
 
         }
     }
@@ -67,13 +67,13 @@ void DataManager::update(){
         float f1=zValues[0];
         float f2=zValues[floor(zValues.size()/2)];
         float f3=zValues[zValues.size()-1];
-        if(f2>f1 && f2 > f3 && f2-f1>peakDiff){
+        if(f2>f1 && f2 > f3 && f2-f1>peakDiffZ){
         
             ofVec3f v =ofVec3f(f1,f2,f3);
             ofNotifyEvent(maxPeak,v );
         }
         
-        if(f2<f1 && f2 < f3 && f1-f2>peakDiff){
+        if(f2<f1 && f2 < f3 && f1-f2>peakDiffZ){
             ofVec3f v =ofVec3f(f1,f2,f3);
             ofNotifyEvent(maxPeak,v );
 

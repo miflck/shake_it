@@ -54,7 +54,9 @@ private:
     vector<float> yValues;
     vector<float> zValues;
 
-    int peakDiff=30;
+    int peakDiff=150;
+    int peakDiffZ=10;
+
     
     
 };
