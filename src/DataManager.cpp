@@ -24,23 +24,63 @@ DataManager::~DataManager(){
 
 void DataManager::update(){
     
-    if(floatValues.size()>2){
-        float f1=floatValues[0];
-        float f2=floatValues[floor(floatValues.size()/2)];
-        float f3=floatValues[floatValues.size()-1];
+
+    
+    
+    if(xValues.size()>2){
+        float f1=xValues[0];
+        float f2=xValues[floor(zValues.size()/2)];
+        float f3=xValues[zValues.size()-1];
+        if(f2>f1 && f2 > f3 && f2-f1>peakDiff){
+            
+            ofVec3f v =ofVec3f(f1,f2,f3);
+            ofNotifyEvent(maxPeak,v );
+        }
         
-        if(f2>f1 && f2 > f3 && f2-f1>100){
-            cout<<"max peak"<<endl;
+        if(f2<f1 && f2 < f3 && f1-f2>peakDiff){
+            ofVec3f v =ofVec3f(f1,f2,f3);
+            ofNotifyEvent(maxPeak,v );
 
         }
-        
-        if(f2<f1 && f2 < f3 && f1-f2>100){
-            cout<<"min peak"<<endl;
-        }
-        
     }
     
     
+    if(yValues.size()>2){
+        float f1=yValues[0];
+        float f2=yValues[floor(zValues.size()/2)];
+        float f3=yValues[zValues.size()-1];
+        if(f2>f1 && f2 > f3 && f2-f1>peakDiff){
+            
+            ofVec3f v =ofVec3f(f1,f2,f3);
+            ofNotifyEvent(maxPeak,v );
+        }
+        
+        if(f2<f1 && f2 < f3 && f1-f2>peakDiff){
+            ofVec3f v =ofVec3f(f1,f2,f3);
+            ofNotifyEvent(maxPeak,v );
+
+        }
+    }
+    
+    
+    if(zValues.size()>2){
+        float f1=zValues[0];
+        float f2=zValues[floor(zValues.size()/2)];
+        float f3=zValues[zValues.size()-1];
+        if(f2>f1 && f2 > f3 && f2-f1>peakDiff){
+        
+            ofVec3f v =ofVec3f(f1,f2,f3);
+            ofNotifyEvent(maxPeak,v );
+        }
+        
+        if(f2<f1 && f2 < f3 && f1-f2>peakDiff){
+            ofVec3f v =ofVec3f(f1,f2,f3);
+            ofNotifyEvent(maxPeak,v );
+
+        }
+    }
+    
+    /*
     if(zValues.size()>2){
         float f1=zValues[0];
         float f2=zValues[floor(zValues.size()/2)];
@@ -49,23 +89,21 @@ void DataManager::update(){
         
         if(f2>f1 && f2 > f3 && f2-f1>peakDiff){
             //cout<<"-----------max peak------------"<<endl;
-           // cout<<f1<<" "<<f2<<" "<<f3<<endl;
+            // cout<<f1<<" "<<f2<<" "<<f3<<endl;
             ofVec3f v =ofVec3f(f1,f2,f3);
             ofNotifyEvent(maxPeak,v );
         }
         
         if(f2<f1 && f2 < f3 && f1-f2>peakDiff){
-           // cout<<"min peak"<<endl;
-           // cout<<f1<<" "<<f2<<" "<<f3<<endl;
+            // cout<<"min peak"<<endl;
+            // cout<<f1<<" "<<f2<<" "<<f3<<endl;
             ofVec3f v =ofVec3f(f1,f2,f3);
-          //  ofNotifyEvent(maxPeak,v );
+            //  ofNotifyEvent(maxPeak,v );
         }
-        
-        
     }
+    */
     
-    
-    
+    /*
     if(zValues.size()>2){
         float f1=zValues[0];
         float f2=getzAverage();
@@ -73,11 +111,10 @@ void DataManager::update(){
 
         float lf=ofLerp(f1, f3, 0.8);
         
-       // cout<<"avg "<<f2<<" "<<f2-f3<<" "<<lf<<" "<<lf-f2<<endl;
         
     }
     
-    
+    */
     
 }
 

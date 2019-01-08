@@ -337,6 +337,9 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				FAE59CC221E54A73009DE4EE /* DataManager.cpp */,
 				FAE59CC021E54A73009DE4EE /* DataManager.hpp */,
 				FAE59CBE21E54A73009DE4EE /* MovingObject.cpp */,
@@ -345,9 +348,6 @@
 				FAE59CBF21E54A73009DE4EE /* Video.hpp */,
 				FAE59CC121E54A73009DE4EE /* VideoPlayer.cpp */,
 				FAE59CC321E54A73009DE4EE /* VideoPlayer.hpp */,
-				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
-				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;

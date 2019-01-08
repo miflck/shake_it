@@ -13,8 +13,6 @@ void ofApp::setup(){
     
     boundingBoxPosition=&Settings::getVec2("boundingBoxPosition");
     boundingBoxDimension=&Settings::getVec2("boundingBoxDimension");
-   // scale=&Settings::getFloat("Scale");
-
     
     string path = "shake_it_Prores";
     ofDirectory dir(path);
@@ -141,8 +139,10 @@ void ofApp::setup(){
     gui->addFooter();
 
    
-    
+    xPlotter = gui->addValuePlotter("xPlotter", 300, 500);
+    yPlotter = gui->addValuePlotter("yPlotter", 300, 500);
     zPlotter = gui->addValuePlotter("zPlotter", 300, 500);
+    
     gui->addBreak()->setHeight(20);
     zoom=gui->addSlider("zoom",0,1, Settings::getFloat("zoom"));
     zoom->bind(Settings::getFloat("zoom"));
@@ -209,6 +209,9 @@ void ofApp::update(){
 
     
     //if(bUseSerial)cout<<datamanager.getFloatAverage()<<endl;
+    xPlotter->setValue(datamanager.getxAverage());
+    yPlotter->setValue(datamanager.getyAverage());
+
     zPlotter->setValue(datamanager.getzAverage());
     //cout<<datamanager.getzAverage()<<endl;
     
@@ -383,11 +386,13 @@ void ofApp::shake(){
 void ofApp::shake(ofVec3f v){
     if(initShakeDebounce+shakeDebounceDuration<ofGetElapsedTimeMillis()){
     int rand=round(ofRandom(shakesounds.size()-1));
-    shakesounds[rand].play();
+        shakesounds[rand].play();
         initShakeDebounce=ofGetElapsedTimeMillis();
     }
     
-    shakeEnergy+=ABS(v.y);
+    
+    cout<<(ABS(v.x)+ABS(v.y)+ABS(v.z))/3<<endl;
+    shakeEnergy+=(ABS(v.x)+ABS(v.y)+ABS(v.z))/3;
 
     
     if(thisvideo->getState()==INTRO){
@@ -397,7 +402,6 @@ void ofApp::shake(ofVec3f v){
                 particles[i].addForce(ofVec2f(ofRandom(-1,1)*10,ofRandom(0.5,-1)*10),ofRandom(f/2,f));
               //  particles[i].setDampingDuration(ofRandom(2,5));
                 particles[i].setDampingDuration(1500);
-
                 particles[i].addRotation(ofRandom(-1,1)*f);
             }
         }else {

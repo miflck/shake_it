@@ -55,6 +55,8 @@ class ofApp : public ofBaseApp{
     
     ofxDatGui* gui;
 
+    ofxDatGuiValuePlotter* xPlotter;
+    ofxDatGuiValuePlotter* yPlotter;
 
     ofxDatGuiValuePlotter* zPlotter;     
     ofxDatGuiSlider* yshift;
@@ -113,10 +115,10 @@ private:
     int shakeDebounceDuration=800;
     
     float shakeEnergy;
-    float shakeDamping=0.995;
+    float shakeDamping=0.99;
     
     
-    int nextThreshold=300;
+    int nextThreshold=500;
     
     bool bUseEnergy=true;
     ofxDatGuiFRM* fps;
