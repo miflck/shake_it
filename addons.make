@@ -1,0 +1,6 @@
+ofxDatGui
+ofxEasing
+ofxJSON
+ofxJsonSettings
+ofxSimpleSerial
+ofxWatchdog
