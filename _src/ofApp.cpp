@@ -156,7 +156,7 @@ void ofApp::setup(){
     gui->onSliderEvent(this, &ofApp::onGuiSliderEvent);
 
     
-    gui->setAutoDraw(false);
+    gui->setAutoDraw(true);
 
     // instantiate a framerate monitor and tell it to update every .5 seconds //
     fps = new ofxDatGuiFRM(0.5f);
@@ -175,7 +175,7 @@ void ofApp::setup(){
     
     for(int i=1;i<8;i++){
         ofSoundPlayer s;
-        s.load("schuttel/shake"+ofToString(i)+".aif");
+        s.load("sounds/shake"+ofToString(i)+".aif");
         s.setMultiPlay(true);
         shakesounds.push_back(s);
     }

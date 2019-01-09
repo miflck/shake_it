@@ -47,7 +47,7 @@ class ofApp : public ofBaseApp{
 
     
     
-    bool debug=false;
+    bool debug=true;
     
     bool bShowMask=true;
     
@@ -118,7 +118,7 @@ private:
     float shakeDamping=0.99;
     
     
-    int nextThreshold=400;
+    int nextThreshold=500;
     
     bool bUseEnergy=true;
     ofxDatGuiFRM* fps;
